@@ -28,15 +28,24 @@ export default function PlantPage() {
           <>
             <Title>{plant().name}</Title>
             <h1>{plant().name}</h1>
-            <For each={plant().variants}>
-              {(variant) => (
-                <>
-                  <p>{variant.name}</p>
-                  <p>{variant.price} €</p>
-                  <img height={300} src={variant.images[0].url} />
-                </>
-              )}
-            </For>
+            <div class="flex gap-5 px-10 justify-center">
+              <For each={plant().variants}>
+                {(variant) => (
+                  <div class="flex flex-col items-center border border-1 border-gray rounded-md w-[400px] overflow-hidden">
+                    <img
+                      height={300}
+                      width={400}
+                      src={variant.images[0].url}
+                      class="max-w-[750px] max-h-[450px] object-cover"
+                    />
+                    <div class="w-full flex justify-between items-center p-5">
+                      <p class="text-xl mx-0">{variant.name}</p>
+                      <p class="text-xl mx-0">€{variant.price}</p>
+                    </div>
+                  </div>
+                )}
+              </For>
+            </div>
           </>
         )}
       </Show>

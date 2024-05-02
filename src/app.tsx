@@ -11,7 +11,9 @@ export default function App() {
       root={(props) => (
         <MetaProvider>
           <Title>Plant App</Title>
-          <a href="/">Index</a>
+          <a href="/" class="flex justify-center mt-10">
+            <img src="/images/crystallize-logo.svg" alt="Crystallize logo" width={150} height={100}/>
+          </a>
           <Suspense>{props.children}</Suspense>
         </MetaProvider>
       )}

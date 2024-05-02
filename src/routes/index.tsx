@@ -17,22 +17,27 @@ export default function Home() {
   });
 
   return (
-    <main>
+    <main class="mx-auto max-w-[1800px] px-10">
       <Title>Hello World</Title>
       <Show when={data()} fallback={<div>Waiting for data...</div>}>
         {(prod) => (
           <>
             <h1>Plants</h1>
-            <div>
+            <div class="flex flex-wrap gap-10 mt-10 w-full mx-auto">
               <For each={prod()}>
                 {(variant) => (
-                  <a href={variant.path}>
+                  <a
+                    href={variant.path}
+                    class="flex flex-col items-center border border-1 border-gray rounded-md overflow-hidden lg:w-[400px] w-full sm:justify-between justify-start"
+                  >
                     <Show when={variant?.variants[0]?.images[0]?.url}>
-                      <p>{variant.name}</p>
                       <img
                         height={300}
+                        width={450}
                         src={variant.variants[0].images[0].url}
+                        class="max-w-[750px] max-h-[450px] object-cover"
                       />
+                      <p class="p-5">{variant.name}</p>
                     </Show>
                   </a>
                 )}
